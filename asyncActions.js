@@ -74,7 +74,8 @@ const fetchusers = () => {
 
 
 const store = createStore(reducer,applyMiddleware(thunkMiddleware))
-store.subscribe(()=>{console.log(store.getState())})
+const unsubscribe=store.subscribe(()=>{console.log(store.getState())})
 store.dispatch(fetchusers())
+unsubscribe()
 
 
